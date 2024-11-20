@@ -9,23 +9,45 @@ import Rounded from "../../common/RoundedButton";
 
 const projects = [
   {
-    title: "C2 Montreal",
-    src: "c2montreal.png",
+    title: "Bono",
+    src: "bono.png",
+    desc: "A restaurant managment system that is actively running inside a cafe",
     color: "#000000",
   },
   {
-    title: "Office Studio",
-    src: "officestudio.png",
-    color: "#8C8C8C",
+    title: "PVS",
+    src: "pvss.png",
+    desc: "A payment verification mobile app that integrates API's like CBE Birr and Telebirr",
+    color: "#8cd965",
   },
   {
-    title: "Locomotive",
-    src: "locomotive.png",
+    title: "Tera",
+    src: "tera.png",
+    desc: "A prcel locker company that is based in Addis Ababa that is still under development",
     color: "#EFE8D3",
   },
   {
-    title: "Silencio",
-    src: "silencio.png",
+    title: "Negus",
+    src: "neguss.png",
+    desc: "A 3d Website concept for Negus Malt",
+    color: "#706D63",
+  },
+  {
+    title: "Sergegna Events",
+    src: "event.png",
+    desc: "A wedding attendie managment system, ticketing system.",
+    color: "#706D63",
+  },
+  {
+    title: "Wedding thank you website",
+    src: "betty.png",
+    desc: "A platform where attendies can upload and download wedding pictures",
+    color: "#706D63",
+  },
+  {
+    title: "Gebeya",
+    src: "betty.png",
+    desc: "An e-commerce platform where users can shop",
     color: "#706D63",
   },
 ];
@@ -116,6 +138,7 @@ export default function Home() {
             <Project
               index={index}
               title={project.title}
+              desc={project.desc}
               manageModal={manageModal}
               key={index}
             />
