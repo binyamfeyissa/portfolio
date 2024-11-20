@@ -50,6 +50,30 @@ const projects = [
     desc: "An e-commerce platform where users can shop",
     color: "#706D63",
   },
+  {
+    title: "La vie en Rose",
+    src: "la.png",
+    desc: "A restaurant website",
+    color: "#706D63",
+  },
+  {
+    title: "Yeshitila Investment group",
+    src: "yig.png",
+    desc: "A restaurant website",
+    color: "#706D63",
+  },
+  {
+    title: "Emmas rostery",
+    src: "la.png",
+    desc: "A restaurant website",
+    color: "#706D63",
+  },
+  {
+    title: "Kandake Beauty",
+    src: "kandake.png",
+    desc: "A restaurant website",
+    color: "#706D63",
+  },
 ];
 
 const scaleAnimation = {
