@@ -13,66 +13,84 @@ const projects = [
     src: "bono.png",
     desc: "A restaurant managment system that is actively running inside a cafe",
     color: "#000000",
+    link: "bono",
   },
   {
     title: "PVS",
     src: "pvss.png",
     desc: "A payment verification mobile app that integrates API's like CBE Birr and Telebirr",
     color: "#8cd965",
+    link: "pvs",
   },
   {
     title: "Tera",
     src: "tera.png",
     desc: "A prcel locker company that is based in Addis Ababa that is still under development",
     color: "#EFE8D3",
+    link: "tera",
   },
   {
     title: "Negus",
     src: "neguss.png",
     desc: "A 3d Website concept for Negus Malt",
     color: "#706D63",
+    link: "negus",
+  },
+  {
+    title: "Mela",
+    src: "mela.png",
+    desc: "A 3d Website concept for Negus Malt",
+    color: "#706D63",
+    link: "mela",
   },
   {
     title: "Sergegna Events",
     src: "event.png",
     desc: "A wedding attendie managment system, ticketing system.",
     color: "#706D63",
+    link: "serategna",
   },
   {
     title: "Wedding thank you website",
     src: "betty.png",
     desc: "A platform where attendies can upload and download wedding pictures",
     color: "#706D63",
+    link: "wedding",
   },
   {
     title: "Gebeya",
-    src: "betty.png",
+    src: "gebeya.png",
     desc: "An e-commerce platform where users can shop",
     color: "#706D63",
+    link: "gebeya",
   },
   {
     title: "La vie en Rose",
     src: "la.png",
     desc: "A restaurant website",
     color: "#706D63",
+    link: "la",
   },
   {
     title: "Yeshitila Investment group",
     src: "yig.png",
     desc: "A restaurant website",
     color: "#706D63",
+    link: "yeshitila",
   },
   {
     title: "Emmas rostery",
-    src: "la.png",
+    src: "emmas.png",
     desc: "A restaurant website",
     color: "#706D63",
+    link: "emmas",
   },
   {
     title: "Kandake Beauty",
     src: "kandake.png",
     desc: "A restaurant website",
     color: "#706D63",
+    link: "kandake",
   },
 ];
 
@@ -169,9 +187,6 @@ export default function Home() {
           );
         })}
       </div>
-      <Rounded>
-        <p>More work</p>
-      </Rounded>
       <>
         <motion.div
           ref={modalContainer}
