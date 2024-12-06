@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
 import styles from "../../../components/ProjectDetail/style.module.scss";
 import projects from "../../../components/Projects/projectsData"; // Assuming you have a separate file for project data
 
@@ -22,10 +23,11 @@ const ProjectDetail = ({ project }) => {
           </div>
         </div>
         <div className={styles.heroImage}>
-          <img
+          <Image
             src={`/images/${project.src}`}
             alt={project.title}
             className={styles.image}
+            layout="fill"
           />
         </div>
       </main>

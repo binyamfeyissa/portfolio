@@ -176,19 +176,9 @@ export default function Home() {
       className={styles.projects}
     >
       <div className={styles.body}>
-        {projects.map((project, index) => {
-          const { src, color, link } = project;
-          return (
-            <Project
-              index={index}
-              href={`/work/${link}`}
-              title={project.title}
-              desc={project.desc}
-              manageModal={manageModal}
-              key={index}
-            />
-          );
-        })}
+        {projects.map((project, index) => (
+          <Project key={index} project={project} />
+        ))}
       </div>
       <>
         <motion.div
