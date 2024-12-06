@@ -6,7 +6,7 @@ import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import Magnetic from "../../common/Magnetic";
 import Link from "next/link";
 
-export default function index() {
+export default function Contact() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -15,6 +15,7 @@ export default function index() {
   const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
+
   return (
     <motion.div
       style={{ y }}

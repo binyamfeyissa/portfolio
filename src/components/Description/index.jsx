@@ -3,7 +3,8 @@ import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 import { slideUp, opacity } from "./animation";
 import Rounded from "../../common/RoundedButton";
-export default function index() {
+
+export default function Description() {
   const phrase =
     "Hi, I'm Binyam! A lead full-stack developer and Upwork freelancer with a proven track record of delivering real-world solutions. With over 15 successful projects under my belt, I specialize in turning complex ideas into seamless digital experiences. Welcome to my portfolio—where passion meets expertise";
   const description = useRef(null);

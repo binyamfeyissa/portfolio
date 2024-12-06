@@ -53,7 +53,7 @@ export default function Header({ customClass }) {
 
   return (
     <>
-      <div ref={header} className={`${styles.header} ${customClass} bg`}>
+      <header ref={header} className={`${styles.header} ${customClass}`}>
         <div className={styles.logo}>
           <div className={styles.name}>
             <p className={styles.codeBy}>Binyam</p>
@@ -88,7 +88,7 @@ export default function Header({ customClass }) {
             </div>
           </Magnetic>
         </div>
-      </div>
+      </header>
       <div ref={button} className={styles.headerButtonContainer}>
         <Rounded
           onClick={() => {
