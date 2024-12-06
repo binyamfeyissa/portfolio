@@ -192,18 +192,19 @@ export default function Home() {
             style={{ top: index * -100 + "%" }}
             className={styles.modalSlider}
           >
-            {projects.map((project, index) => {
+            {projects.map((project) => {
               const { src, color, link } = project;
               return (
                 <div
+                  key={link} // Add the key prop here
                   className={styles.modal}
                   style={{ backgroundColor: color }}
                 >
                   <Image
                     src={`/images/${src}`}
                     width={300}
-                    height={0}
-                    alt="image"
+                    height={200} // Adjust height from 0 to a meaningful value
+                    alt={project.title || "image"} // Add a meaningful alt text
                   />
                 </div>
               );

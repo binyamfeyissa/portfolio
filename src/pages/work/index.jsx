@@ -209,6 +209,7 @@ export default function Work() {
                   <div
                     className={styles.modal}
                     style={{ backgroundColor: color }}
+                    key={link}
                   >
                     <Image
                       src={`/images/${src}`}

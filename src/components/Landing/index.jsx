@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { slideUp } from "./animation";
@@ -13,6 +13,18 @@ export default function Home() {
   const slider = useRef(null);
   let xPercent = 0;
   const directionRef = useRef(-1);
+
+  const animate = useCallback(() => {
+    if (xPercent < -100) {
+      xPercent = 0;
+    } else if (xPercent > 0) {
+      xPercent = -100;
+    }
+    gsap.set(firstText.current, { xPercent: xPercent });
+    gsap.set(secondText.current, { xPercent: xPercent });
+    requestAnimationFrame(animate);
+    xPercent += 0.1 * directionRef.current;
+  }, [xPercent, directionRef]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -27,19 +39,7 @@ export default function Home() {
       x: "-500px",
     });
     requestAnimationFrame(animate);
-  }, []);
-
-  const animate = () => {
-    if (xPercent < -100) {
-      xPercent = 0;
-    } else if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * directionRef.current;
-  };
+  }, [animate]);
 
   return (
     <motion.main

@@ -18,13 +18,14 @@ export default function Header({ customClass }) {
 
   useEffect(() => {
     if (isActive) setIsActive(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useLayoutEffect(() => {
     let ScrollTrigger;
     (async () => {
-      const module = await import("gsap/ScrollTrigger");
-      ScrollTrigger = module.ScrollTrigger;
+      const scrollModule = await import("gsap/ScrollTrigger"); // Fixed variable name
+      ScrollTrigger = scrollModule.ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.to(button.current, {
