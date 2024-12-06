@@ -5,6 +5,7 @@ import Project from "./components/project";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 import Rounded from "../../common/RoundedButton";
 
 const projects = [
@@ -55,7 +56,7 @@ const projects = [
     src: "betty.png",
     desc: "A platform where attendies can upload and download wedding pictures",
     color: "#706D63",
-    link: "wedding",
+    link: "wedding-thank-you-website",
   },
   {
     title: "Gebeya",
@@ -69,28 +70,28 @@ const projects = [
     src: "la.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "la",
+    link: "la-vie-en-rose",
   },
   {
     title: "Yeshitila Investment group",
     src: "yig.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "yeshitila",
+    link: "yeshitila-investment-group",
   },
   {
     title: "Emmas rostery",
     src: "emmas.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "emmas",
+    link: "emmas-roastery",
   },
   {
     title: "Kandake Beauty",
     src: "kandake.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "kandake",
+    link: "kandake-beauty",
   },
 ];
 
@@ -176,9 +177,11 @@ export default function Home() {
     >
       <div className={styles.body}>
         {projects.map((project, index) => {
+          const { src, color, link } = project;
           return (
             <Project
               index={index}
+              href={`/work/${link}`}
               title={project.title}
               desc={project.desc}
               manageModal={manageModal}
@@ -200,12 +203,11 @@ export default function Home() {
             className={styles.modalSlider}
           >
             {projects.map((project, index) => {
-              const { src, color } = project;
+              const { src, color, link } = project;
               return (
                 <div
                   className={styles.modal}
                   style={{ backgroundColor: color }}
-                  key={`modal_${index}`}
                 >
                   <Image
                     src={`/images/${src}`}
