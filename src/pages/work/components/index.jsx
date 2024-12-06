@@ -12,9 +12,10 @@ export default function index({ index, href, title, desc, manageModal }) {
         manageModal(false, index, e.clientX, e.clientY);
       }}
       onClick={() => {
-        window.location.href = href;
+        window.open(href, "_blank", "noopener,noreferrer");
       }}
       className={styles.project}
+      target="_blank"
     >
       <div>
         <h2>{title}</h2>

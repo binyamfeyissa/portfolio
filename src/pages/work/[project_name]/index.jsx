@@ -7,7 +7,7 @@ const ProjectDetailPage = ({ project }) => {
 
 export async function getStaticPaths() {
   const paths = projects.map((project) => ({
-    params: { project_name: project.title.toLowerCase().replace(/\s+/g, "-") },
+    params: { project_name: project.slug.toLowerCase().replace(/\s+/g, "-") },
   }));
 
   return { paths, fallback: false };
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const project = projects.find(
     (proj) =>
-      proj.title.toLowerCase().replace(/\s+/g, "-") === params.project_name
+      proj.slug.toLowerCase().replace(/\s+/g, "-") === params.project_name
   );
 
   return { props: { project } };

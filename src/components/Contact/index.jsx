@@ -4,6 +4,7 @@ import Rounded from "../../common/RoundedButton";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import Magnetic from "../../common/Magnetic";
+import Link from "next/link";
 
 export default function index() {
   const container = useRef(null);
@@ -15,7 +16,12 @@ export default function index() {
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
   return (
-    <motion.div style={{ y }} ref={container} className={styles.contact}>
+    <motion.div
+      style={{ y }}
+      ref={container}
+      className={styles.contact}
+      id="footer"
+    >
       <div className={styles.body}>
         <div className={styles.title}>
           <span>
@@ -26,9 +32,11 @@ export default function index() {
           </span>
           <h2>together</h2>
           <motion.div style={{ x }} className={styles.buttonContainer}>
-            <Rounded backgroundColor={"#334BD3"} className={styles.button}>
-              <p>Get in touch</p>
-            </Rounded>
+            <Link href={`https://www.linkedin.com/in/binyam-feyissa`}>
+              <Rounded backgroundColor={"#334BD3"} className={styles.button}>
+                <p>Get in touch</p>
+              </Rounded>
+            </Link>
           </motion.div>
           <motion.svg
             style={{ rotate, scale: 2 }}
@@ -45,12 +53,16 @@ export default function index() {
           </motion.svg>
         </div>
         <div className={styles.nav}>
-          <Rounded>
-            <p>binyam.feyissa.gudina@gmail.com</p>
-          </Rounded>
-          <Rounded>
-            <p>+251-967933981</p>
-          </Rounded>
+          <Link href={`mailto:binyam.feyissa.gudina@gmail.com`}>
+            <Rounded>
+              <p>binyam.feyissa.gudina@gmail.com</p>
+            </Rounded>
+          </Link>
+          <Link href={`tel:+251967933981`}>
+            <Rounded>
+              <p>+251-967933981</p>
+            </Rounded>
+          </Link>
         </div>
         <div className={styles.info}>
           <div>
@@ -63,15 +75,25 @@ export default function index() {
             <span>
               <h3>socials</h3>
               <Magnetic>
-                <p>Whatsapp</p>
+                <Link href={`https://www.linkedin.com/in/binyam-feyissa`}>
+                  <p>Linkedin</p>
+                </Link>
               </Magnetic>
             </span>
-
             <Magnetic>
-              <p>Telegram</p>
+              <Link href={`https://wa.me/251967933981`}>
+                <p>Whatsapp</p>
+              </Link>
             </Magnetic>
             <Magnetic>
-              <p>Linkedin</p>
+              <Link href={`https://t.me/immigrant_from_pluto`}>
+                <p>Telegram</p>
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link href={`https://github.com/binyamfeyissa/`}>
+                <p>GitHub</p>
+              </Link>
             </Magnetic>
           </div>
         </div>

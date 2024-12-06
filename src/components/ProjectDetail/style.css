@@ -41,7 +41,9 @@ a {
   padding: 2rem 1.5rem;
   padding-top: 150px;
 }
-
+.space {
+  padding: 200px;
+}
 .title {
   font-family: "Tenor Sans", sans-serif;
   font-size: 96px;
@@ -82,7 +84,7 @@ a {
 }
 .info-column p {
   margin: 0;
-  font-size: 18px;
+  /* font-size: 18px; */
   font-weight: 300;
 }
 
@@ -193,4 +195,7 @@ a {
 .project-details-header .logo .name p,
 .project-details-header .nav a {
   color: black;
+}
+a {
+  color: white;
 }

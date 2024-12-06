@@ -1,13 +1,15 @@
 "use client";
 import styles from "./style.module.scss";
 import { useState, useEffect, useRef } from "react";
-import Project from "./components/project";
+import Project from "./components/index";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import Rounded from "../../common/RoundedButton";
-
+import Header from "../../components/Header/index";
+import Contact from "../../components/Contact";
+import "./style.css";
 const projects = [
   {
     title: "Bono",
@@ -111,7 +113,7 @@ const scaleAnimation = {
   },
 };
 
-export default function Home() {
+export default function Work() {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { active, index } = modal;
   const modalContainer = useRef(null);
@@ -156,87 +158,99 @@ export default function Home() {
   }, []);
 
   const moveItems = (x, y) => {
-    xMoveContainer.current(x);
-    yMoveContainer.current(y);
-    xMoveCursor.current(x);
-    yMoveCursor.current(y);
-    xMoveCursorLabel.current(x);
-    yMoveCursorLabel.current(y);
+    if (xMoveContainer.current && yMoveContainer.current) {
+      xMoveContainer.current(x);
+      yMoveContainer.current(y);
+    }
+    if (xMoveCursor.current && yMoveCursor.current) {
+      xMoveCursor.current(x);
+      yMoveCursor.current(y);
+    }
+    if (xMoveCursorLabel.current && yMoveCursorLabel.current) {
+      xMoveCursorLabel.current(x);
+      yMoveCursorLabel.current(y);
+    }
   };
+
   const manageModal = (active, index, x, y) => {
     moveItems(x, y);
     setModal({ active, index });
   };
 
   return (
-    <main
-      onMouseMove={(e) => {
-        moveItems(e.clientX, e.clientY);
-      }}
-      className={styles.projects}
-    >
-      <div className={styles.body}>
-        {projects.map((project, index) => {
-          const { src, color, link } = project;
-          return (
-            <Project
-              index={index}
-              href={`/work/${link}`}
-              title={project.title}
-              desc={project.desc}
-              manageModal={manageModal}
-              key={index}
-            />
-          );
-        })}
-      </div>
-      <>
-        <motion.div
-          ref={modalContainer}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? "enter" : "closed"}
-          className={styles.modalContainer}
-        >
-          <div
-            style={{ top: index * -100 + "%" }}
-            className={styles.modalSlider}
+    <>
+      <Header customClass="project-details-header" /> {/* Pass custom class */}
+      <main
+        onMouseMove={(e) => {
+          moveItems(e.clientX, e.clientY);
+        }}
+        className={styles.projects}
+      >
+        <div className={styles.body}>
+          {projects.map((project, index) => {
+            const { src, color, link } = project;
+            return (
+              <Project
+                index={index}
+                href={`/work/${link}`}
+                title={project.title}
+                desc={project.desc}
+                manageModal={manageModal}
+                key={index}
+              />
+            );
+          })}
+        </div>
+        <>
+          <motion.div
+            ref={modalContainer}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+            className={styles.modalContainer}
           >
-            {projects.map((project, index) => {
-              const { src, color, link } = project;
-              return (
-                <div
-                  className={styles.modal}
-                  style={{ backgroundColor: color }}
-                >
-                  <Image
-                    src={`/images/${src}`}
-                    width={300}
-                    height={0}
-                    alt="image"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
-        <motion.div
-          ref={cursor}
-          className={styles.cursor}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? "enter" : "closed"}
-        ></motion.div>
-        <motion.div
-          ref={cursorLabel}
-          className={styles.cursorLabel}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? "enter" : "closed"}
-        >
-          View
-        </motion.div>
-      </>
-    </main>
+            <div
+              style={{ top: index * -100 + "%" }}
+              className={styles.modalSlider}
+            >
+              {projects.map((project, index) => {
+                const { src, color, link } = project;
+                return (
+                  <div
+                    className={styles.modal}
+                    style={{ backgroundColor: color }}
+                  >
+                    <Image
+                      src={`/images/${src}`}
+                      width={300}
+                      height={0}
+                      alt="image"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+          <motion.div
+            ref={cursor}
+            className={styles.cursor}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+          ></motion.div>
+          <motion.div
+            ref={cursorLabel}
+            className={styles.cursorLabel}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+          >
+            View
+          </motion.div>
+        </>
+      </main>
+      <div className="space"></div>
+      <Contact />
+    </>
   );
 }

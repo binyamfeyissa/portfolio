@@ -8,6 +8,7 @@ import gsap from "gsap";
 import Rounded from "../../common/RoundedButton";
 import Magnetic from "../../common/Magnetic";
 import "./style.css";
+import Link from "next/link";
 
 export default function Header({ customClass }) {
   const header = useRef(null);
@@ -62,19 +63,27 @@ export default function Header({ customClass }) {
         <div className={styles.nav}>
           <Magnetic>
             <div className={styles.el}>
-              <a>Work</a>
+              <Link href={`/`}>
+                <p>Home</p>
+              </Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a>About</a>
+              <Link href={`/work`}>Work</Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <a>Contact</a>
+              <Link href={`/about`}>Resume</Link>
+              <div className={styles.indicator}></div>
+            </div>
+          </Magnetic>
+          <Magnetic>
+            <div className={styles.el}>
+              <Link href={`#footer`}>Contact</Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>

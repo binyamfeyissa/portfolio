@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../Header"; // Adjust the import path as necessary
+import Header from "../Header";
 import "./style.css";
-
+import Contact from "../Contact";
 const ProjectDetail = ({ project }) => {
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -40,8 +40,6 @@ const ProjectDetail = ({ project }) => {
             <h3>Role / Services</h3>
             <div class="stripe"></div>
             <p>{project.role}</p>
-            <p>Design: </p>
-            <p>Photography: {project.photographer}</p>
           </div>
           <div className="info-column">
             <h3>Description</h3>
@@ -63,7 +61,7 @@ const ProjectDetail = ({ project }) => {
           <div className="info-column">
             <h3>Description</h3>
             <div class="stripe"></div>
-            <p>{project.description}</p>
+            <div dangerouslySetInnerHTML={{ __html: project.description }} />
           </div>
         </motion.div>
 
@@ -101,30 +99,8 @@ const ProjectDetail = ({ project }) => {
           ))}
         </div> */}
       </main>
-      <footer className="footer">
-        <div className="footer-content">
-          <h2 className="footer-title">FABRIC™</h2>
-          <div className="footer-grid">
-            <div className="footer-column">
-              <h3>Edition</h3>
-              <p>{project.year} © Edition</p>
-            </div>
-            <div className="footer-column">
-              <h3>Local Time</h3>
-              <p>15:07 AM GMT+1</p>
-            </div>
-            <div className="footer-column">
-              <h3>Socials</h3>
-              <div className="socials">
-                <p>Awwwards</p>
-                <p>Instagram</p>
-                <p>Dribbble</p>
-                <p>LinkedIn</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <div className="space"></div>
+      <Contact />
       <button className="like-button">
         View <br /> Project
       </button>
