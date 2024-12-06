@@ -5,7 +5,6 @@ import Project from "./components/project";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
-import Link from "next/link";
 import Rounded from "../../common/RoundedButton";
 
 const projects = [
@@ -56,7 +55,7 @@ const projects = [
     src: "betty.png",
     desc: "A platform where attendies can upload and download wedding pictures",
     color: "#706D63",
-    link: "wedding-thank-you-website",
+    link: "wedding",
   },
   {
     title: "Gebeya",
@@ -70,28 +69,28 @@ const projects = [
     src: "la.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "la-vie-en-rose",
+    link: "la",
   },
   {
     title: "Yeshitila Investment group",
     src: "yig.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "yeshitila-investment-group",
+    link: "yeshitila",
   },
   {
     title: "Emmas rostery",
     src: "emmas.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "emmas-roastery",
+    link: "emmas",
   },
   {
     title: "Kandake Beauty",
     src: "kandake.png",
     desc: "A restaurant website",
     color: "#706D63",
-    link: "kandake-beauty",
+    link: "kandake",
   },
 ];
 
@@ -176,9 +175,17 @@ export default function Home() {
       className={styles.projects}
     >
       <div className={styles.body}>
-        {projects.map((project, index) => (
-          <Project key={index} project={project} />
-        ))}
+        {projects.map((project, index) => {
+          return (
+            <Project
+              index={index}
+              title={project.title}
+              desc={project.desc}
+              manageModal={manageModal}
+              key={index}
+            />
+          );
+        })}
       </div>
       <>
         <motion.div
@@ -192,19 +199,19 @@ export default function Home() {
             style={{ top: index * -100 + "%" }}
             className={styles.modalSlider}
           >
-            {projects.map((project) => {
-              const { src, color, link } = project;
+            {projects.map((project, index) => {
+              const { src, color } = project;
               return (
                 <div
-                  key={link} // Add the key prop here
                   className={styles.modal}
                   style={{ backgroundColor: color }}
+                  key={`modal_${index}`}
                 >
                   <Image
                     src={`/images/${src}`}
                     width={300}
-                    height={200} // Adjust height from 0 to a meaningful value
-                    alt={project.title || "image"} // Add a meaningful alt text
+                    height={0}
+                    alt="image"
                   />
                 </div>
               );
