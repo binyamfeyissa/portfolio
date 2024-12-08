@@ -17,12 +17,12 @@ const navItems = [
     href: "/work",
   },
   {
-    title: "About",
-    href: "/about",
+    title: "Resume",
+    href: "https://drive.google.com/file/d/1mxeflykggT2svWnij_iO5Mf4NqjcpbNI/view?usp=sharing",
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "#footer",
   },
 ];
 

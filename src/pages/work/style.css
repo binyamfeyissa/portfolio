@@ -24,6 +24,9 @@ body {
 main p {
   color: black;
 }
-p {
+a p {
+  color: rgb(0, 0, 0);
+}
+#footer p {
   color: white;
 }

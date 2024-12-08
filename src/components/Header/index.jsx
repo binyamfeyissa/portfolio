@@ -78,7 +78,13 @@ export default function Header({ customClass }) {
           </Magnetic>
           <Magnetic>
             <div className={styles.el}>
-              <Link href={`/about`}>Resume</Link>
+              <Link
+                href={`https://drive.google.com/file/d/1mxeflykggT2svWnij_iO5Mf4NqjcpbNI/view?usp=sharing`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>

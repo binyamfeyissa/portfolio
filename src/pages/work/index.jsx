@@ -158,20 +158,13 @@ export default function Work() {
   }, []);
 
   const moveItems = (x, y) => {
-    if (xMoveContainer.current && yMoveContainer.current) {
-      xMoveContainer.current(x);
-      yMoveContainer.current(y);
-    }
-    if (xMoveCursor.current && yMoveCursor.current) {
-      xMoveCursor.current(x);
-      yMoveCursor.current(y);
-    }
-    if (xMoveCursorLabel.current && yMoveCursorLabel.current) {
-      xMoveCursorLabel.current(x);
-      yMoveCursorLabel.current(y);
-    }
+    xMoveContainer.current(x);
+    yMoveContainer.current(y);
+    xMoveCursor.current(x);
+    yMoveCursor.current(y);
+    xMoveCursorLabel.current(x);
+    yMoveCursorLabel.current(y);
   };
-
   const manageModal = (active, index, x, y) => {
     moveItems(x, y);
     setModal({ active, index });
@@ -187,9 +180,19 @@ export default function Work() {
         className={styles.projects}
       >
         <div className={styles.body}>
-          {projects.map((project, index) => (
-            <Project key={index} project={project} />
-          ))}
+          {projects.map((project, index) => {
+            const { src, color, link } = project;
+            return (
+              <Project
+                index={index}
+                href={`/work/${link}`}
+                title={project.title}
+                desc={project.desc}
+                manageModal={manageModal}
+                key={index}
+              />
+            );
+          })}
         </div>
         <>
           <motion.div
@@ -209,7 +212,7 @@ export default function Work() {
                   <div
                     className={styles.modal}
                     style={{ backgroundColor: color }}
-                    key={link}
+                    key={index}
                   >
                     <Image
                       src={`/images/${src}`}
