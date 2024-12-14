@@ -20,7 +20,7 @@ export default function index({ index, href, title, desc, manageModal }) {
         <h2>{title}</h2>
         <p>{desc}</p>
       </div>
-      <p>Design & Development</p>
+      <p className={styles.thep}>Design & Development</p>
     </div>
   );
 }
