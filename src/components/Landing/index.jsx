@@ -48,7 +48,7 @@ export default function Home() {
       animate="enter"
       className={styles.landing}
     >
-      <Image src="/images/bg3.png" fill={true} alt="background" />
+      <Image src="/images/bg33.png" fill={true} alt="background" />
       <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>
           <p ref={firstText}>Full Stack Developer -</p>
